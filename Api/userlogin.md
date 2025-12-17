@@ -6,7 +6,7 @@ This section documents the REST APIs used in the service-oriented monolithic arc
 
 Endpoint: POST /api/users/register/consumer
 
-Functional Requirement: 
+### Functional Requirement: 
 FR-01 – Users can register and log in to the system
 
 **Description**
@@ -26,81 +26,84 @@ Registers a new customer (end user) in the system using basic personal details.
   "password": "password123",
   "address": "123 Main Street"
 }
+```
 
-
-Response
+Response:
 
  - 201 Created – Registration successful
 
  - 400 Bad Request – Invalid input or user already exists
 
-Notes
+Notes:
 
  - Consumers are not assigned a staff role.
 
  - Consumers can submit complaints and provide feedback.
 
 
+
+
 Endpoint: POST /api/users/register/internal
 
-Functional Requirement
+### Functional Requirement
 FR-01 – Users can register and log in to the system 
 
-Description:
+**Description**
 Registers an internal user such as help desk staff, support staff, or administrator.
 
-Headers:
+## Headers
 
 Content-Type: application/json
 
-Request Body:
-
+### Request Body
+```json
 {
-  "email": "staff@example.com",
-  "username": "staff_user",
-  "phoneNumber": "0798765432",
+  "email": "user@example.com",
+  "username": "john_doe",
+  "phoneNumber": "0123456789",
   "password": "password123",
-  "address": "123 Office Street",
-  "role": "HELP_DESK"
+  "address": "123 Main Street"
 }
+```
 
 
 Response:
 
-Status: 201 Created - Internal user successfully registered
+ - Status: 201 Created - Internal user successfully registered
 
 Notes
 
-Internal users are assigned a role (HELP_DESK, SUPPORT, ADMIN).
+ - Internal users are assigned a role (HELP_DESK, SUPPORT, ADMIN).
 
-Internal users manage and resolve complaints.
+ - Internal users manage and resolve complaints.
 
 Endpoint: POST /api/users/auth/login
 
-Functional Requirement
+### Functional Requirement
 FR-01 – Users can register and log in to the system
 
-Description:
+**Description**
 Authenticates a user using email and password.
 
-Headers:
+## Headers
 
 Content-Type: application/json
 
-Request Body:
+### Request Body
+```json
 
 {
   "email": "user@example.com",
   "password": "password123"
 }
-
+```
 
 Response:
 
-Status: 200 OK - Login successful
+ - Status: 200 OK - Login successful
 
-Returns authenticated user details
+ - Returns authenticated user details
 
 Notes
 
-Role-based access control is applied after authentication.
+ - Role-based access control is applied after authentication.
