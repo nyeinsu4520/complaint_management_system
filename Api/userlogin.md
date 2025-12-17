@@ -17,9 +17,9 @@ Registers a new customer (end user) in the system using basic personal details.
 - Content-Type: application/json
 
 
-Request Body
-
-```json{
+### Request Body
+```json
+{
   "email": "user@example.com",
   "username": "john_doe",
   "phoneNumber": "0123456789",
